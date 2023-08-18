@@ -7,7 +7,6 @@ module.exports.loop = function () {
   for (var name in Memory.creeps) {
     if (!Game.creeps[name]) {
       delete Memory.creeps[name];
-      console.log("Clearing non-existing creep memory:", name);
     }
   }
 
@@ -30,7 +29,6 @@ module.exports.loop = function () {
 
   if (builder.length < 2) {
     var newName = "builder" + Game.time;
-    console.log("Spawning new builder: " + newName);
     Game.spawns["Spawn1"].spawnCreep([WORK, CARRY, MOVE], newName, {
       memory: { role: "builder" },
     });
@@ -38,7 +36,6 @@ module.exports.loop = function () {
 
   if (harvesters.length === 0) {
     var newName = "Harvester" + Game.time;
-    console.log("Spawning new harvester: " + newName);
     Game.spawns["Spawn1"].spawnCreep([WORK, CARRY, MOVE], newName, {
       memory: { role: "harvester" },
     });
@@ -46,7 +43,6 @@ module.exports.loop = function () {
 
   if (upgrader.length < 4) {
     var newName = "Upgrader" + Game.time;
-    console.log("Spawning new upgrader: " + newName);
     Game.spawns["Spawn1"].spawnCreep([WORK, CARRY, MOVE], newName, {
       memory: { role: "upgrader" },
     });
